@@ -60,6 +60,7 @@ def shuffle(s, n, N):
 		w.append(w_k)
 	return w
 	
+# allows for z_0 = y_1 = x_2
 def lag_series(series, lag, length):
 	return series[lag:length+lag]
 	
