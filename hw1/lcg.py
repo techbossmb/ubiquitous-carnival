@@ -51,7 +51,7 @@ def generate_data(s, N):
     scaled_y = [y/M for y in y]
     return scaled_x, scaled_y
 
-#plot
+#make plot
 def plotxy(x, y, title):
 	plt.figure(title)
 	plt.plot(x,y,'bo')
@@ -61,7 +61,9 @@ def plotxy(x, y, title):
 # entry point    
 def main():
     init()
-    [x, y] = generate_data(567, 2000)
+	seedValue = 567
+	N = 2000
+    [x, y] = generate_data(seedValue, N)
     #prints the covariance of x,y
     print 'covariance of x and y <= simple linear congruential generator:'
     print(cov(x,y))

@@ -79,7 +79,7 @@ def generate_data(s, n, N):
     return scaled_x, scaled_y
     
 
-#plot
+#make plot
 def plotxy(x, y, title):
 	plt.figure(title)
 	plt.plot(x,y,'bo')
@@ -89,6 +89,7 @@ def plotxy(x, y, title):
 # entry point    
 def main():
     initM()
+	# generate 2000 random numbers from 5000 lcg generated random number with seed value = 457
     [x, y] = generate_data(457, 2000, 5000)
     #prints the covariance of x,y
     print 'covariance of x and y <= shuffled lcg:'

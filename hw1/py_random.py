@@ -26,7 +26,7 @@ def generate_data(N):
     [x, y] = split_data(series)
     return x, y
 
-#plot
+#make plot
 def plotxy(x, y, title):
 	plt.figure(title)
 	plt.plot(x,y,'bo')
@@ -35,7 +35,9 @@ def plotxy(x, y, title):
 	
 # entry point    
 def main():
-    [x, y] = generate_data(2000)
+	# generate 2000 random numbers
+	N = 2000
+    [x, y] = generate_data(N)
     #prints the covariance of x,y
     print 'covariance of x and y <= py .random():'
     print(cov(x,y))
