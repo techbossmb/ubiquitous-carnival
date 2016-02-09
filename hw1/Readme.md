@@ -1,1 +1,1 @@
-Homework 1
+Homework 1 : Random Number Generator
