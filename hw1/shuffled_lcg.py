@@ -94,8 +94,8 @@ def main():
 	[x, y] = generate_data(457, 2000, 5000)
 	#prints the covariance of x,y
 	out = open('q2.txt', 'w')
-    print >>out, 'covariance of x and y \n for shuffled lcg:'
-    print >>out, cov(x,y)
+	print >>out, 'covariance of x and y \n for shuffled lcg:'
+	print >>out, cov(x,y)
 	plotxy(x,y,'q2-shuffled_lcg')
 
 main() 
