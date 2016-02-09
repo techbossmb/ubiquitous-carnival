@@ -65,8 +65,9 @@ def main():
 	N = 2000
 	[x, y] = generate_data(seedValue, N)
 	#prints the covariance of x,y
-	print 'covariance of x and y <= simple linear congruential generator:'
-	print(cov(x,y))
+	out = open('q1.txt', 'w')
+    	print >>out, 'covariance of x and y \n for simple linear congruential generator:'
+    	print >>out, cov(x,y)
 	plotxy(x,y,'q1-lcg')
 
 
