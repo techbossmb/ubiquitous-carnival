@@ -93,8 +93,9 @@ def main():
 	# generate 2000 random numbers from 5000 lcg generated random number with seed value = 457
 	[x, y] = generate_data(457, 2000, 5000)
 	#prints the covariance of x,y
-	print 'covariance of x and y <= shuffled lcg:'
-	print(cov(x,y))
+	out = open('q2.txt', 'w')
+    	print >>out, 'covariance of x and y \n for shuffled lcg:'
+    	sprint >>out, cov(x,y)
 	plotxy(x,y,'q2-shuffled_lcg')
 
 main() 
