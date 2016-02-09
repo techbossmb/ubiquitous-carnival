@@ -8,11 +8,11 @@ from scipy import stats
 #@date: 02/08/16
 #shuffled version of linear congruential generator
 
-def initM(argument=None):
+def initM(args=None):
 	global M
 	M = 2048
-	if argument is not None:
-		M = argument
+	if args is not None:
+		M = args
 
 def seed(value):
 	#set seed value
