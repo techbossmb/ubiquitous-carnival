@@ -1,0 +1,4 @@
+covariance of x and y 
+ for shuffled lcg:
+[[ 0.08441656  0.00185228]
+ [ 0.00185228  0.0820459 ]]

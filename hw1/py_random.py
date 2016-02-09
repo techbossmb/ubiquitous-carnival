@@ -40,8 +40,8 @@ def main():
 	[x, y] = generate_data(N)
 	#prints the covariance of x,y
 	out = open('q3.txt', 'w')
-    	print >>out, 'covariance of x and y \n for py .random():'
-    	print >>out, cov(x,y)
+    print >>out, 'covariance of x and y \n for py .random():'
+    print >>out, cov(x,y)
 	plotxy(x,y,'q3-py_random')
 
 
