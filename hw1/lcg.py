@@ -6,6 +6,8 @@ from scipy import stats
 
 #@author: Ishola Babatunde
 #@date: 02/08/16
+#lcg uses simple linear congruential generator to create n random numbers
+
 def init():
     global M
     M = 2048
@@ -55,11 +57,13 @@ def plotxy(x, y, title):
 	plt.plot(x,y,'bo')
 	plt.show()
 	
+	
 # entry point    
 def main():
     init()
     [x, y] = generate_data(567, 2000)
     #prints the covariance of x,y
+    print 'covariance of x and y <= simple linear congruential generator:'
     print(cov(x,y))
     plotxy(x,y,'q1-lcg')
     
