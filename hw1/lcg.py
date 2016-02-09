@@ -44,7 +44,7 @@ def split_data(data):
 	return x, y
 
 # generate scaled x and y data    
-def generate_data(s, N):
+def generate_rv(s, N):
 	series = lcg_randoms(s, N)
 	[x, y] = split_data(series)
 	scaled_x = [x/M for x in x]
@@ -63,7 +63,7 @@ def main():
 	init()
 	seedValue = 567
 	N = 2000
-	[x, y] = generate_data(seedValue, N)
+	[x, y] = generate_rv(seedValue, N)
 	#prints the covariance of x,y
 	out = open('q1.txt', 'w')
 	print >>out, 'covariance of x and y \n for simple linear congruential generator:'
