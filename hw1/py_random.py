@@ -39,8 +39,9 @@ def main():
 	N = 2000
 	[x, y] = generate_data(N)
 	#prints the covariance of x,y
-	print 'covariance of x and y <= py .random():'
-	print(cov(x,y))
+	out = open('q3.txt', 'w')
+    	print >>out, 'covariance of x and y \n for py .random():'
+    	print >>out, cov(x,y)
 	plotxy(x,y,'q3-py_random')
 
 
