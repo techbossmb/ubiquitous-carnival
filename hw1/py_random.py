@@ -44,5 +44,6 @@ def main():
 	print >>out, cov(x,y)
 	plotxy(x,y,'q3-py_random')
 
-main() 
+if __name__ == '__main__':
+	main() 
 
