@@ -54,8 +54,10 @@ def generate_data(s, N):
 #plot
 def plotxy(x, y, title):
 	plt.figure(title)
+	plt.xlabel('x')
+	plt.ylabel('y')
 	plt.plot(x,y,'bo')
-	plt.show()
+	plt.savefig('result/'+title)
 	
 	
 # entry point    
