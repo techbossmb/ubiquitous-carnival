@@ -68,6 +68,7 @@ def main():
 	out = open('q1.txt', 'w')
 	print >>out, 'covariance of x and y \n for simple linear congruential generator:'
 	print >>out, cov(x,y)
+	out.close()
 	plotxy(x,y,'q1-lcg')
 
 if __name__ == '__main__':
