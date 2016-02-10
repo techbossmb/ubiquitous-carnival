@@ -70,4 +70,5 @@ def main():
 	print >>out, cov(x,y)
 	plotxy(x,y,'q1-lcg')
 
-main() 
+if __name__ == '__main__':
+	main() 
