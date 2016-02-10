@@ -60,7 +60,6 @@ def plotxy(x, y, title):
 	plt.savefig('result/'+title)
 	
 	
-# entry point    
 def main():
     init()
     [x, y] = generate_data(567, 2000)
