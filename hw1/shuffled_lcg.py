@@ -98,5 +98,6 @@ def main():
 	print >>out, cov(x,y)
 	plotxy(x,y,'q2-shuffled_lcg')
 
-main() 
+if __name__ == '__main__':
+	main() 
 
