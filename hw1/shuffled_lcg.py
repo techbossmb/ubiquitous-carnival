@@ -39,12 +39,13 @@ def lcg_randoms(seedValue, n):
 
 #shuffle n random numbers from N lcg_random numbers using T table with s = seed value
 def shuffle(n, series):
+	# readjusting length of the series for the lag - see comment on generate_data() function
 	length = size(series)-2
 	x = lag_series(series, 0, length)
 	y = lag_series(series, 1, length)
 	z = lag_series(series, 2, length)
 	
-	#needed to revert M to float
+	#needed to revert M to float - is this a data structure issue
 	initM(float(M)) 
 	#L: table T of L values 
 	L = 100
