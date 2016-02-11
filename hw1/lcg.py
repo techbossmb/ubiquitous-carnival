@@ -56,7 +56,7 @@ def plotxy(x, y, title):
 	plt.figure(title)
 	plt.xlabel('x')
 	plt.ylabel('y')
-	plt.plot(x,y,'bo')
+	fig = plt.plot(x,y, 'bo')
 	plt.savefig('result/'+title)
 	
 	
