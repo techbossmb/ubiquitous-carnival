@@ -63,12 +63,13 @@ def plotxy(x, y, title):
 def main():
     init()
     [x, y] = generate_data(567, 2000)
-    #prints the covariance of x,y
-    out = open('result/q1.txt', 'w+')
+    #prints the covariance of x,y to file
+    # you might have to create result folder if it doesn't exist else this line throw exception
+    out = open('result/q1.txt', 'w')
     print >>out, 'covariance of x and y \n for simple linear congruential generator:'
     print >>out, cov(x,y)
     out.close()
     plotxy(x,y,'q1-lcg')
     
 if __name__ == '__main__':	
-	main() 
+	main()
