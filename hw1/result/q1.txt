@@ -1,4 +1,0 @@
-covariance of x and y 
- for simple linear congruential generator:
-[[ 0.08336091  0.01662958]
- [ 0.01662958  0.08359763]]
