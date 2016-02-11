@@ -64,7 +64,7 @@ def main():
     init()
     [x, y] = generate_data(567, 2000)
     #prints the covariance of x,y
-    out = open('result/q1.txt', 'w')
+    out = open('result/q1.txt', 'w+')
     print >>out, 'covariance of x and y \n for simple linear congruential generator:'
     print >>out, cov(x,y)
     out.close()
