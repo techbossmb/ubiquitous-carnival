@@ -71,6 +71,9 @@ def split_data(data):
     
 # generate scaled x and y data given seed value = s 
 def generate_data(s, n, N):
+	# generate N + 2 extra data points because z lags x by 2
+	# so, if I need 5000 data points, 5002 random numbers would have to be generated
+	# because z_5000 = x_5002 - see equation for generating linear congruential numbers for details
 	series = lcg_randoms(s, N+2)
 	series = shuffle(n, series)
 	[x, y] = split_data(series)
