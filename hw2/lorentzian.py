@@ -50,7 +50,7 @@ def calculate_stats(z):
 def main():
 	accepted = []
 	for i in range(10000):
-		A = integral_fx() 
+		A = integral_fx()
 		u1 = random.uniform(0, A)
 		x = calculateXGivenZ(u1)
 		f_x = lorentzian(x)
