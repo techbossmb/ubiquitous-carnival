@@ -39,6 +39,14 @@ def calculateXGivenZ(z):
 	_3root2 = 3*sqrt(2)
 	return sqrt(2) * tan(z/_3root2)
 	
+def calculate_stats(z):
+	#calculate mean
+	ev = mean(z)
+	print 'Mean: ' + str(ev)
+	#calculate variance
+	variance = var(z)
+	print 'Variance: ' + str(variance)
+	
 def main():
 	accepted = []
 	for i in range(10000):
@@ -50,10 +58,11 @@ def main():
 		p_x = gamma_dist(x)
 		if(u2 <= p_x):#accept
 			accepted.append(x)
-	print 'accepted'+str(size(accepted))+'out of 10000'
 	plt.figure(1)
 	plt.hist(accepted)
 	plt.savefig('result/lorentzian')
+	calculate_stats(accepted)
+	print 'accepted '+str(size(accepted))+' out of 10000'
 	plt.show()
 
 if __name__=='__main__':

@@ -33,11 +33,21 @@ def plot_hist(data, title):
 	plt.hist(data)
 	plt.savefig('result/'+title)
 	plt.show()
-	
+
+def calculate_stats(z1, z2):
+	z = z1 + z2
+	#calculate mean
+	ev = mean(z)
+	print 'Mean: ' + str(ev)
+	#calculate variance
+	variance = var(z)
+	print 'Variance: ' + str(variance)
+
 def main():
 	[z1, z2] = gen_normal_rv(10000)
 	plot_hist(z1, 'z1')
 	plot_hist(z2, 'z2')
+	calculate_stats(z1, z2)
 
 if __name__=='__main__':
 	main()
