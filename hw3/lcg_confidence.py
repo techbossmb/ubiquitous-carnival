@@ -31,9 +31,16 @@ def get_sample_size(margin_error, confidence_interval, expected_value):
 def calculata_stats(rv):
 	return mean(rv), var(rv)
 
+def goodness_of_fit_uniform_rv(rv, ev):
+	ev_list = ev*ones(size(rv))
+	[xsquare, p_value] = stats.chisquare(rv, f_exp=ev_list)
+	return xsquare, p_value
+
 def plot_hist(data):
-	plt.figure('lcg-generated uniform rv')
+	title = 'lcg_generated_uniform rv'
+	plt.figure(title)
 	plt.hist(data)
+	plt.savefig('result/'+title)
 	plt.show()
 
 #entry point
@@ -43,6 +50,8 @@ def main():
 	uniform_rv = do_lcg(int(sample_size))
 	[mu, sigma] = calculata_stats(uniform_rv)
 	print mu, sigma
+	#[xsquare, p_value] = goodness_of_fit_uniform_rv(uniform_rv, expected_value)
+	#print xsquare, p_value
 	plot_hist(uniform_rv)
 
 if __name__=='__main__':
