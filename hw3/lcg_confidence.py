@@ -74,16 +74,7 @@ def test_lcg():
 	integrand = lambda x : 1
 	actual = testing_chi(uniform_rv, number_of_bins, integrand)
 	expected = stats.chi2.ppf(.99, number_of_bins-1)
-	evaluate_results(actual, expected)
-
-
-def evaluate_results(actual, expected):
-	print("Actual: ", actual, " Expected: ", expected)
-	if (actual > expected):
-		print("Reject the null hypothesis! RNG poorly fits target")
-	else:
-		print("Fail to reject!")
-
+	#evaluate_results(actual, expected)
 
 #entry point
 def main():
