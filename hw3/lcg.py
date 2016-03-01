@@ -52,6 +52,7 @@ def generate_multivariate_data(s, N):
     return scaled_x, scaled_y
     
 def generate_univariate_data(s, N):
+	init()
 	series = lcg_randoms(s, N)
 	scaled_data = [series/M for series in series]
 	return scaled_data

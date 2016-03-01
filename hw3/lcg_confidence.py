@@ -60,9 +60,10 @@ def testing_chi(rvs, number_of_bins, integrand):
 		count[k]=size(temp) #counts indices
 		p[k], err=quad(integrand,bin_ends[k],bin_ends[k+1]) #calculates probabily of rv falling w/in each bin
 	n = len(rvs)
-	chi_squared = [(count[k] - n/number_of_bins) ** 2 for k in range(1, number_of_bins)]
-	ans = number_of_bins/n * sum(chi_squared)
-	return ans
+	expected_counts = [ n * p[k] for k in range(bins) ]
+    #find the chisquared value for our count
+    chi_squared, pvalue = scipy.stats.chisquare(count, expected_counts)
+    return chi_squared
 
 
 #test lcg goodness of fit
