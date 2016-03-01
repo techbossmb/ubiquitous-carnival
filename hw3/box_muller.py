@@ -20,6 +20,14 @@ def gen_normal_rv(n):
 	[z1, z2] = transform(u1, u2)
 	return z1, z2
 
+#added this function to use in hw3
+def generate_univariate_data(n, variance):
+	z=[]
+	[z1, z2] = gen_normal_rv(n/2)#generate 1/2 of the rvs from each zs
+	z = concatenate((z1,z2),axis=0)#merge z1 and z2
+	rvs = [z*sqrt(variance) for z in z] # force rvs to have specified variance
+	return rvs
+
 #use box-muller transformation to convert uniform to normal dist.	
 def transform(u1, u2):
 	z1 = sqrt(-2*log(u1))*cos(2*pi*u2)
