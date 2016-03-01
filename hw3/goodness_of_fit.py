@@ -3,8 +3,10 @@ import matplotlib.pyplot as plt
 import pylab
 from scipy import stats
 from scipy.integrate import quad
-from random import random
-import lcg
+
+#@author: Ishola Babatunde
+#@date: 02/29/2016
+#does chi-squared goodness of fit
 
 #maps confidence interval to zscore
 def zmap(CI):
@@ -16,37 +18,6 @@ def get_sample_size(std_dev, CI, ME):
 	zscore = zmap(CI)
 	n = (zscore * std_dev / float(ME))**2
 	return int(n)
-
-#generate linear congruential generator uniform rvs
-def generate_lcg_rvs():
-	sigma = 1/float(12)
-	sample_size = get_sample_size(sigma, '99%', 0.01)
-	seed = 345 # just some arbitrary value
-	lcg_data = lcg.generate_univariate_data(seed, sample_size)
-	return lcg_data
-
-#generate python default random() uniform rvs
-def generate_random_rvs():
-	sigma = 1/float(12)
-	sample_size = get_sample_size(sigma, '99%', 0.01)
-	rvs = empty([sample_size, 1])
-	return [random() for rvs in rvs]
-
-#test lcg fit
-def test_lcg_fit():
-	rvs = generate_lcg_rvs()
-	number_of_bins = int(1.88 * size(rvs) ** (2/5.0))
-	integrand = lambda x : 1
-	print 'testing lcg'
-	do_chi(rvs, number_of_bins, integrand)
-
-#test random() fit
-def test_random_fit():
-	rvs = generate_random_rvs()
-	number_of_bins = int(1.88 * size(rvs) ** (2/5.0))
-	integrand = lambda x : 1
-	print 'testing random'
-	do_chi(rvs, number_of_bins, integrand)
 
 #evaluate chi-squared
 def do_chi(rvs, number_of_bins, integrand):
