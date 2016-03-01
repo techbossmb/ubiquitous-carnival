@@ -46,7 +46,7 @@ def chisquare_test(rvs, number_of_bins, integrand):
 
 #compare expected and actual chi square and reject or accept hypothesis
 def compare_chisquare(actual, expected):
-	print actual, expected
+	print 'chisquared - actual: '+str(actual)+' expected: '+ str(expected)
 	if actual > expected:
 		print 'Reject independence hypothesis i.e good fit'
 	else:
