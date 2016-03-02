@@ -47,10 +47,10 @@ def chisquare_test(rvs, number_of_bins, integrand):
 #compare expected and actual chi square and reject or accept hypothesis
 def compare_chisquare(actual, expected):
 	print 'chisquared - actual: '+str(actual)+' expected: '+ str(expected)
-	if actual > expected:
-		print 'Reject independence hypothesis i.e good fit'
+	if actual < expected:
+		print 'Accept null hypothesis i.e., good fit'
 	else:
-		print 'Accept independence hypothesis i.e. bad fit'
+		print 'Reject null hypothesis i.e., bad fit'
 
 #calcualte mean and variance of random distribution
 def calculate_stats(rvs):
