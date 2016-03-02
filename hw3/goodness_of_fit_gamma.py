@@ -10,15 +10,16 @@ from scipy import stats
 
 #generate gamma distributed rvs given shape
 def generate_gamma_rvs(shape):
-	variance = stats.gamma(shape).var()
+	variance = stats.gamma(shape).var() #get in-built variance for gamma
 	sigma = sqrt(variance)
-	sample_size = gof.get_sample_size(sigma, '99%', 0.01)
+	margin_error = 0.1
+	sample_size = gof.get_sample_size(sigma, '99%', margin_error)
 	rvs = stats.gamma(shape).rvs(size=sample_size)
 	return rvs
 
 #test gamma fit
 def test_gamma_fit():
-	shape = 5
+	shape = 5 #given from hw1
 	rvs = generate_gamma_rvs(shape)
 	number_of_bins = int(1.88 * size(rvs) ** (2/5.0))
 	integrand = lambda x : stats.gamma(5).pdf(x)

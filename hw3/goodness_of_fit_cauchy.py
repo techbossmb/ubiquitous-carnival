@@ -23,9 +23,9 @@ def test_cauchy_fit(sample_size):
 	gof.do_chi(rvs, number_of_bins, integrand)
 
 def main():
-	test_cauchy_fit(1000)
+	test_cauchy_fit(100)
 	print '\n'
-	test_cauchy_fit(10000)
+	test_cauchy_fit(1000)
 
 if __name__=='__main__':
 	main()

@@ -11,13 +11,14 @@ from scipy import stats
 #generate box muller rvs given variance
 def generate_muller_rvs(variance):
 	sigma = sqrt(variance)
-	sample_size = gof.get_sample_size(sigma, '99%', 0.01)
+	margin_error = 0.02 #for normal distribution
+	sample_size = gof.get_sample_size(sigma, '99%', margin_error)
 	rvs = boxmuller.generate_univariate_data(sample_size, variance)
 	return rvs
 
 #test box-muller fit
 def test_muller_fit():
-	variance = 0.1
+	variance = 0.1 # given in the ques
 	rvs = generate_muller_rvs(variance)
 	number_of_bins = int(1.88 * size(rvs) ** (2/5.0))
 	integrand = lambda x : stats.norm.pdf(x, scale=variance)

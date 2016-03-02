@@ -47,7 +47,7 @@ def chisquare_test(rvs, number_of_bins, integrand):
 #compare expected and actual chi square and reject or accept hypothesis
 def compare_chisquare(actual, expected):
 	print 'chisquared - actual: '+str(actual)+' expected: '+ str(expected)
-	if actual < expected:
+	if actual <= expected:
 		print 'Accept null hypothesis i.e., good fit'
 	else:
 		print 'Reject null hypothesis i.e., bad fit'
@@ -55,11 +55,3 @@ def compare_chisquare(actual, expected):
 #calcualte mean and variance of random distribution
 def calculate_stats(rvs):
 	print 'mean: '+str(mean(rvs))+' variance: '+str(var(rvs))
-
-#entry point 
-def main():
-	test_lcg_fit() #test the goodness of fit for lcg generator
-	test_random_fit() # test gooness of fit for random generator
-
-if __name__=='__main__':
-	main()
