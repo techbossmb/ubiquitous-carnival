@@ -1,6 +1,7 @@
 from numpy import *
 import goodness_of_fit as gof
 from random import random
+import writer
 
 #@author: Ishola Babatunde
 #@date: 02/29/2016
@@ -19,7 +20,7 @@ def test_random_fit():
 	rvs = generate_random_rvs()
 	number_of_bins = int(1.88 * size(rvs) ** (2/5.0))
 	integrand = lambda x : 1 #pdf for uniform rv
-	print 'testing random'
+	writer.append('testing random')
 	gof.do_chi(rvs, number_of_bins, integrand)
 
 def main():

@@ -3,6 +3,7 @@ import box_muller as boxmuller
 import matplotlib.pyplot as plt
 import goodness_of_fit as gof
 from scipy import stats
+import writer
 
 #@author: Ishola Babatunde
 #@date: 03/01/2016
@@ -22,7 +23,7 @@ def test_muller_fit():
 	rvs = generate_muller_rvs(variance)
 	number_of_bins = int(1.88 * size(rvs) ** (2/5.0))
 	integrand = lambda x : stats.norm.pdf(x, scale=variance)
-	print 'testing box-muller'
+	writer.append('testing box-muller')
 	gof.do_chi(rvs, number_of_bins, integrand)
 
 def main():

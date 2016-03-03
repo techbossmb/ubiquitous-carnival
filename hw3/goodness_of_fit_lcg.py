@@ -1,6 +1,7 @@
 from numpy import *
 import goodness_of_fit as gof
 import lcg
+import writer
 
 #@author: Ishola Babatunde
 #@date: 02/29/2016
@@ -20,7 +21,7 @@ def test_lcg_fit():
 	rvs = generate_lcg_rvs()
 	number_of_bins = int(1.88 * size(rvs) ** (2/5.0))
 	integrand = lambda x : 1 #pdf for uniform rv
-	print 'testing lcg'
+	writer.append('testing lcg')
 	gof.do_chi(rvs, number_of_bins, integrand)
 
 def main():

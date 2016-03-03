@@ -1,0 +1,36 @@
+GOODNESS OF FIT TEST FOR FIVE DISTRIBUTIONS
+
+testing lcg
+chisquared - actual: 27.4739130435 expected: 37.5662347866
+Accept null hypothesis i.e., good fit
+mean: 0.48817297894 variance: 0.0903246026364
+
+
+testing random
+chisquared - actual: 32.952173913 expected: 37.5662347866
+Accept null hypothesis i.e., good fit
+mean: 0.497455010859 variance: 0.0746856665714
+
+
+testing box-muller
+chisquared - actual: 2.909431876e+16 expected: 57.3420734339
+Reject null hypothesis i.e., bad fit
+mean: -0.00476722971403 variance: 0.0969494466056
+
+
+testing cauchy distribution with 1000 samples
+chisquared - actual: 3.65984682734 expected: 48.2782357703
+Accept null hypothesis i.e., good fit
+mean: 6.02165118309 variance: 2.381250192
+
+
+testing cauchy distribution with 10000 samples
+chisquared - actual: 42.8766619583 expected: 104.009834082
+Accept null hypothesis i.e., good fit
+mean: 6.0100952448 variance: 2.56653988518
+
+
+testing gamma distribution
+chisquared - actual: 15.4561570126 expected: 72.4433073765
+Accept null hypothesis i.e., good fit
+mean: 5.01049415109 variance: 5.00617428363

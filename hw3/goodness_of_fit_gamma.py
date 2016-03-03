@@ -3,6 +3,7 @@ import box_muller as boxmuller
 import matplotlib.pyplot as plt
 import goodness_of_fit as gof
 from scipy import stats
+import writer
 
 #@author: Ishola Babatunde
 #@date: 03/01/2016
@@ -23,7 +24,7 @@ def test_gamma_fit():
 	rvs = generate_gamma_rvs(shape)
 	number_of_bins = int(1.88 * size(rvs) ** (2/5.0))
 	integrand = lambda x : stats.gamma(5).pdf(x)
-	print 'testing gamma distribution'
+	writer.append('testing gamma distribution')
 	gof.do_chi(rvs, number_of_bins, integrand)
 
 def main():

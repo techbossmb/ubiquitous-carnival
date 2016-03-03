@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import pylab
 from scipy import stats
 from scipy.integrate import quad
+import writer
 
 #@author: Ishola Babatunde
 #@date: 02/29/2016
@@ -46,12 +47,12 @@ def chisquare_test(rvs, number_of_bins, integrand):
 
 #compare expected and actual chi square and reject or accept hypothesis
 def compare_chisquare(actual, expected):
-	print 'chisquared - actual: '+str(actual)+' expected: '+ str(expected)
+	writer.append('chisquared - actual: '+str(actual)+' expected: '+ str(expected))
 	if actual <= expected:
-		print 'Accept null hypothesis i.e., good fit'
+		writer.append('Accept null hypothesis i.e., good fit')
 	else:
-		print 'Reject null hypothesis i.e., bad fit'
+		writer.append('Reject null hypothesis i.e., bad fit')
 
 #calcualte mean and variance of random distribution
 def calculate_stats(rvs):
-	print 'mean: '+str(mean(rvs))+' variance: '+str(var(rvs))
+	writer.append('mean: '+str(mean(rvs))+' variance: '+str(var(rvs)))
