@@ -1,10 +1,8 @@
 #file helper functions
 def write(string):
-	file = open('result/result.txt', 'w+')
-	print >>file, string
-	file.close()
+	with open('result/result.txt', 'w+') as file:
+		print >>file, string
 
 def append(string):
-	file = open('result/result.txt', 'a')
-	print >>file, string
-	file.close()
+	with open('result/result.txt', 'a') as file:
+		print >>file, string
