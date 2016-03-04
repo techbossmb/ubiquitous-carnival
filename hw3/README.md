@@ -20,12 +20,12 @@ Homework 3 - question
         1,000 samples? Variance? 10,000 samples?
     5. Test the gamma-distributed RNG from hw2
 
-    You can use scipy.stats.chi2 as a chi squared calculator
-
 USAGE
-    Run each chi_squared_test.py file manually 
-        Requires the other RNG files to run
+    Run hw3_main.py
+    or  goodness_of_fit_lcg.py
+        goodness_of_fit_rand.py
+        goodness_of_fit_boxmuller.py
+        goodness_of_fit_cauchy.py
+        goodness_of_fit_gamma.py
+    make sure all code files in this folder are present
 
-DEPENDENCIES
-    scipy - calculate chi squared, integrals, distributions
-    numpy - variance and mean
