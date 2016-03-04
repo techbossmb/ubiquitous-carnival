@@ -24,3 +24,13 @@ Accept null hypothesis i.e., good fit
 mean: 6.07718807913 variance: 2.79572682546
 
 
+testing cauchy distribution with 10000 samples
+chisquared - actual: 51.5797599194 expected: 104.009834082
+Accept null hypothesis i.e., good fit
+mean: 6.02728717508 variance: 2.62540853876
+
+
+testing gamma distribution
+chisquared - actual: 38.8012199666 expected: 72.4433073765
+Accept null hypothesis i.e., good fit
+mean: 4.98817693003 variance: 5.00812494364
