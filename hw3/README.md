@@ -1,7 +1,5 @@
-Homework 3 - question
-USAGE
-+ Run hw3_main.py
-+ or  goodness_of_fit_lcg.py
+Run hw3_main.py or 
++    goodness_of_fit_lcg.py
 +    goodness_of_fit_rand.py
 +    goodness_of_fit_boxmuller.py
 +    goodness_of_fit_cauchy.py
