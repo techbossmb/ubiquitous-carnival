@@ -19,8 +19,8 @@ Homework 3 - question
         cannot be used. You can use the Chi Squared test. What mean do you get from
         1,000 samples? Variance? 10,000 samples?
     5. Test the gamma-distributed RNG from hw2
-
-USAGE
+    
+    USAGE
     +Run hw3_main.py
     +or  goodness_of_fit_lcg.py
     +    goodness_of_fit_rand.py
@@ -28,4 +28,6 @@ USAGE
     +    goodness_of_fit_cauchy.py
     +    goodness_of_fit_gamma.py
     make sure all code files in this folder are present
+
+
 
