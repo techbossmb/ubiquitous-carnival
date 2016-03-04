@@ -6,6 +6,7 @@ USAGE
 +    goodness_of_fit_boxmuller.py
 +    goodness_of_fit_cauchy.py
 +    goodness_of_fit_gamma.py
+
 make sure all code files in this folder are present
 
 
