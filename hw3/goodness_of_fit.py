@@ -94,7 +94,7 @@ def compare_chisquare(actual, expected):
 
 """
 calcualte mean and variance of random distribution
-saves output to file
+saves output to filegit 
 @args: rvs - generated random distribution
 @return: null, prints output to file
 """
