@@ -5,6 +5,7 @@ from scipy import stats
 from scipy.integrate import quad
 import random as rnd
 import writer
+from decimal import Decimal
 
 #@author: Ishola Babatunde
 #@date: 03/13/16
@@ -27,10 +28,10 @@ def rnd_100_walk(p):
 		return 0
 
 def rnd_multi_walk(N):
+	total = 0
 	for i in range(N):
-		total = 0
 		total = total + rnd_100_walk(0.85)
-	return total/float(N)
+	return "%.2e"%(total/float(N))
 
 #entry point
 def main():
