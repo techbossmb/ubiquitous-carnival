@@ -35,7 +35,7 @@ def rnd_multi_walk(N):
 #entry point
 def main():
 	likelihood = rnd_multi_walk(100)
-	writer.append(likelihood)
+	writer.append("random walk likelihood is "+str(likelihood))
 
 if __name__=="__main__":
 	main()
