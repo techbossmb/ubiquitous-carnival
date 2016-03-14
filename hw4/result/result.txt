@@ -1,0 +1,3 @@
+
+problem 1 mean is 0.506720422309
+problem 2 mean is 5.30125827261
