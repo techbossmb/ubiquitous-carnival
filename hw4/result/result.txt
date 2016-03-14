@@ -1,4 +1,4 @@
 
-problem 1 mean is 0.508380364778
-problem 2 mean is 5.31139636873
-random walk likelihood is 3.21e-13
+problem 1 mean is 0.493551477709
+problem 2 mean is 5.31696409291
+random walk likelihood is 1.91e-13

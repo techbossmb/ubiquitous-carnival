@@ -28,11 +28,8 @@ def run_problem2(sample_size):
 	writer.append("problem 2 mean is "+str(mu))
 
 def main():
-	print("Crunching numbers...")
-	writer.write("")
 	run_problem1(10000)
 	run_problem2(10000)
-	print("Done")
 
 if __name__=="__main__":
 	main()
