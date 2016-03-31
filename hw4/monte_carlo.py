@@ -12,9 +12,6 @@ def run_problem1(sample_size):
 	f_x = [-1 * log(1-u) for u in u]
 	g_x = [cos(f_x) for f_x in f_x]
 	mu = mean(g_x)
-	#cf1 = (mu - 0.5)**2
-	#cf2 = var(g_x)/(0.01*sample_size)
-	#print cf1, cf2
 	writer.append("problem 1 mean is "+str(mu))
 
 def run_problem2(sample_size):

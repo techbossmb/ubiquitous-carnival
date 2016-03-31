@@ -8,5 +8,6 @@ def write(string):
 		print >>file, string #redirect print output to file
 #write in append mode
 def append(string):
+	print string
 	with open('result/result.txt', 'a') as file:
 		print >>file, string #redirect print output to file
