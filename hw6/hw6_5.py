@@ -16,7 +16,7 @@ def operation():
 	last_latt = m0
 
 	for tt in range(tt_list):
-		latt3D = generateConfigs(l, H, J, last_latt, nbr_configs, nbr_configs2use, tt_list[tt])	
+		latt3D = generate_configs(l, H, J, last_latt, nbr_configs, nbr_configs2use, tt_list[tt])	
 		latt3D_pad = zeros(([l+2, l+2, nbr_configs2use))
 		
 		for cind in range(nbr_configs2use):
