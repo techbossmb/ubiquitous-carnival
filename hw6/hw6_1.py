@@ -13,7 +13,7 @@ def main():
     last_lattice = initial_energy
     
     for temp in range(temp_range):
-        lattice = create_lattice(l, h, j, last_lattice, n_configs, n_usable_configs, temp_range(temp))
+        lattice = generate_configs(l, h, j, last_lattice, n_configs, n_usable_configs, temp_range(temp))
         lattice_pad = numpy.zeros((l+2, l+2, n_usable_configs))
 
         for config in range(n_usable_configs):
