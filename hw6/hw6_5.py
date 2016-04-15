@@ -4,7 +4,7 @@ import pylab
 from scipy import stats
 from scipy.integrate import quad
 import writer
-import generate_configs
+from generate_configs import generate_configs
 
 def operation():
 	l,H,J=15,0.1,1
@@ -16,12 +16,12 @@ def operation():
 	m0 = random.random((l,l))*2 -1
 	last_latt = m0
 
-	for tt in range(tt_list):
+	for tt in range(size(tt_list)):
 		latt3D = generate_configs(l, H, J, last_latt, nbr_configs, nbr_configs2use, tt_list[tt])	
-		latt3D_pad = zeros(([l+2, l+2, nbr_configs2use))
+		latt3D_pad = zeros(([l+2, l+2, nbr_configs2use]))
 		
 		for cind in range(nbr_configs2use):
-			latt3D_pad[:,:,cind] = mpad(latt3D[:,:,cind])
+			latt3D_pad[:,:,cind] = pad(latt3D[:,:,cind])
 		
 		north = latt3D_pad[0:-2, 1:-1, :]
 		south = latt3D_pad[2:, 1:-1, :]
