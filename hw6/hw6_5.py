@@ -4,6 +4,7 @@ import pylab
 from scipy import stats
 from scipy.integrate import quad
 import writer
+import generate_configs
 
 def operation():
 	l,H,J=15,0.1,1
