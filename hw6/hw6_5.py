@@ -5,12 +5,13 @@ from scipy import stats
 from scipy.integrate import quad
 import writer
 from generate_configs import generate_configs
+from pad import pad
 
 def operation():
 	l,H,J=15,0.1,1
 	nbr_configs, nbr_configs2use = 250,200
-	tt_list = [x/10.0 for x in range(100,0,-5)]
-
+	tt_list = [x/float(10) for x in range(100,0,-5)]
+	#print tt_list
 	expg_sigma = zeros([size(tt_list),1])
 	
 	m0 = random.random((l,l))*2 -1
@@ -30,20 +31,26 @@ def operation():
 
 		stable_spins3D = (latt3D==north) and (latt3D==south) and (latt3D==east) and (latt3D==west)
 		g_sigma = sum(stable_spins3D)
+		print latt3D.shape
+		print latt3D_pad.shape
+		print north.shape
+		print south.shape
+		print east.shape
+		print west.shape
 		expg_sigma[tt] = sum(g_sigma)/float(nbr_configs2use)
 		last_latt = latt3D[:,:,-1]
-	plotxy(tt_list, expg_sigma,'Figure 5')	
+	plotxy(tt_list, expg_sigma)	
 
-def plotxy(x,y,title):
-	plt.figure(title)
+def plotxy(x,y):
+	plt.figure('hw 5 figure')
 	plt.xlabel('Temperature')
 	plt.ylabel('Number of stable spins')
 	plt.plot(x,y,'bo')
-	plt.savefig('result/'+title)
+	plt.savefig('result/fig5')
 	plt.show()
 
 def main():
-	print("hello")
+	#print("hello")
 	operation()
 
 if __name__=="__main__":
