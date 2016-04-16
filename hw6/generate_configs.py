@@ -21,5 +21,5 @@ def generate_configs(l, h, j, initial_lattice,
                 lattice = new_lattice
         lattice_full[:,:,x] = lattice
     size_z = lattice_full.shape[2]
-    lattice3D = lattice_full[:,:,size_z-n_usable_configs+1:size_z]
-    return lattice_full
+    lattice3D = lattice_full[:,:,size_z-n_usable_configs:size_z]
+    return lattice3D

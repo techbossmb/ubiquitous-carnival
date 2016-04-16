@@ -18,9 +18,10 @@ def operation():
 	last_latt = m0
 
 	for tt in range(size(tt_list)):
-		latt3D = generate_configs(l, H, J, last_latt, nbr_configs, nbr_configs2use, tt_list[tt])	
+		latt3D = generate_configs(l, H, J, last_latt, nbr_configs, nbr_configs2use, tt_list[tt])
+		#print latt3D.shape
 		latt3D_pad = zeros(([l+2, l+2, nbr_configs2use]))
-		
+		#print latt3D_pad.shape
 		for cind in range(nbr_configs2use):
 			latt3D_pad[:,:,cind] = pad(latt3D[:,:,cind])
 		
@@ -28,15 +29,15 @@ def operation():
 		south = latt3D_pad[2:, 1:-1, :]
 		east = latt3D_pad[1:-1, 2:, :]
 		west = latt3D_pad[1:-1, 0:-2, :]
-
-		stable_spins3D = (latt3D==north) and (latt3D==south) and (latt3D==east) and (latt3D==west)
+		#print latt3D==north
+		#print latt3D_pad.shape
+		#print north.shape
+		stable_spins3D = (latt3D==north) & (latt3D==south) & (latt3D==east) & (latt3D==west)
 		g_sigma = sum(stable_spins3D)
-		print latt3D.shape
-		print latt3D_pad.shape
-		print north.shape
-		print south.shape
-		print east.shape
-		print west.shape
+		print g_sigma
+		#print south.shape
+		#print east.shape
+		#print west.shape
 		expg_sigma[tt] = sum(g_sigma)/float(nbr_configs2use)
 		last_latt = latt3D[:,:,-1]
 	plotxy(tt_list, expg_sigma)	
