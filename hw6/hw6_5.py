@@ -14,7 +14,7 @@ def operation():
 	#print tt_list
 	expg_sigma = zeros([size(tt_list),1])
 	
-	m0 = random.random((l,l))*2 -1
+	m0 = around(random.rand(l,l),0)*2 -1
 	last_latt = m0
 
 	for tt in range(size(tt_list)):
@@ -32,13 +32,20 @@ def operation():
 		#print latt3D==north
 		#print latt3D_pad.shape
 		#print north.shape
+		#print north.shape
 		stable_spins3D = (latt3D==north) & (latt3D==south) & (latt3D==east) & (latt3D==west)
+		#print stable_spins3D[:,:,0]
+		#print latt3D
+		#print north
+		#print sum(latt3D==east)
+		#print sum(latt3D==west)
 		g_sigma = sum(stable_spins3D)
 		print g_sigma
+		#print g_sigma
 		#print south.shape
 		#print east.shape
 		#print west.shape
-		expg_sigma[tt] = sum(g_sigma)/float(nbr_configs2use)
+		expg_sigma[tt] = g_sigma/float(nbr_configs2use)
 		last_latt = latt3D[:,:,-1]
 	plotxy(tt_list, expg_sigma)	
 

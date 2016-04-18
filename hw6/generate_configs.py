@@ -10,8 +10,8 @@ def generate_configs(l, h, j, initial_lattice,
 
     for x in range(n_configs):
         for t in range(l**2):
-            r = random.random() * l
-            c = random.random() * l
+            r = int(random.random() * l)
+            c = int(random.random() * l)
             new_lattice = initial_lattice
             new_lattice[r, c] = new_lattice[r,c] * -1
 	    #print new_lattice.shape
