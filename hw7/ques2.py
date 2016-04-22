@@ -5,7 +5,7 @@ import pylab
 @author: Ishola Babtunde
 '''
 #exact solution
-def exactsde(x_0, t_0, t_f, dt, a, b):
+def exactsde(x_0, t_0, t_f, dt, a, b, ervs):
 	t = linspace(t_0,t_f,1/dt)
 	n = t.shape[0]
 	sqrt_dt = sqrt(dt)
@@ -15,13 +15,13 @@ def exactsde(x_0, t_0, t_f, dt, a, b):
 	n_t_list = []
 	n_t_list.append(x_0)
 	for i in range(int(1/dt)-1):
-		b_t[i+1] = b_t[i] + sqrt_dt*random.normal(0, dt)
+		b_t[i+1] = b_t[i] + sqrt_dt*ervs[i]
 		n_t[i+1] = n_t[0]*exp((a-0.5*b**2)*t[i+1] + b*b_t[i])
 		n_t_list.append(n_t[i+1])
 	return n_t_list
 
 #euler solution
-def eulersde(x_0, t_0, t_f, dt, f, g):
+def eulersde(x_0, t_0, t_f, dt, f, g, ervs):
 	t = linspace(t_0,t_f,1/dt)
 	n = t.shape[0]
 	sqrt_dt = sqrt(dt)
@@ -30,13 +30,13 @@ def eulersde(x_0, t_0, t_f, dt, f, g):
 	x_t_list = []
 	x_t_list.append(x_t[0])
 	for i in range(int(1/dt)-1):
-		rand_var = random.normal(0, dt)
+		rand_var = ervs[i]
 		x_t[i+1] = x_t[i] + f*x_t[i]*dt + g*x_t[i]*rand_var*sqrt_dt
 		x_t_list.append(x_t[i+1])
 	return x_t_list
 
 #huen solution
-def huensde(x_0, t_0, t_f, dt, a, b):
+def huensde(x_0, t_0, t_f, dt, a, b, ervs):
 	t = linspace(t_0, t_f, 1/dt)
 	n = t.shape[0]
 	sdt = sqrt(dt)
@@ -46,14 +46,20 @@ def huensde(x_0, t_0, t_f, dt, a, b):
 	x_list.append(x_0)
 	for i in range(1, int(1/dt)):
 		x_n = x[i-1]
-		w_t = random.normal(0, dt)*sdt
+		w_t = ervs[i-1]*sdt
 		x_tilde = x_n+(a*x_n)* dt + (b*x_n) * w_t
 		x_t = x_n+(0.5)*((a*x_n)+(a*x_tilde)) * dt + (
 				(0.5)*((b*x_n)+(b*x_tilde))) * w_t
 		x[i] = x_t
 		x_list.append(x[i])
 	return x_list
-
+	
+def rand_exp(dt):
+	erv = zeros((int(1/dt)-1))
+	for i in range(size(erv)):
+		erv[i] = random.normal(0, dt)
+	return erv
+	
 def run():
 	dts = [2**-3, 2**-4, 2**-5, 2**-6]
 	n = 100
@@ -63,13 +69,15 @@ def run():
 		euler = []
 		huen = []
 		exact = []
+		#use same rv for each method
+		erv = rand_exp(dts[j])
 		for i in range(n):
 			#append the array returned by the euler algorithm
-			euler.append(eulersde(1,0,1,dts[j],1.5,0.1))
+			euler.append(eulersde(1,0,1,dts[j],1.5,0.1, erv))
 			#append the array returned by the huen algorithm
-			huen.append(huensde(1,0,1,dts[j],1.5,0.1))
+			huen.append(huensde(1,0,1,dts[j],1.5,0.1, erv))
 			#append the array returned by the exact algorithm
-			exact.append(exactsde(1,0,1,dts[j],1.5,0.1))
+			exact.append(exactsde(1,0,1,dts[j],1.5,0.1, erv))
 
 		#average the values returned from each iteration
 		euler_mean = mean(euler, axis=0)
@@ -77,8 +85,8 @@ def run():
 		exact_mean = mean(exact, axis=0)
 		
 		#estimate the error-squared	
-		euler_err = (euler_mean-exact_mean)**2
-		huen_err = (huen_mean-exact_mean)**2
+		euler_err = abs(euler_mean-exact_mean)#**2
+		huen_err = abs(huen_mean-exact_mean)#**2
 		
 		#plot euler error over huen error for each value of delta t
 		plotxyz(linspace(0,1,1/dts[j]), euler_err, huen_err, 'b','r', 'euler-huen dt=2^-'+str(j+3), 0)
