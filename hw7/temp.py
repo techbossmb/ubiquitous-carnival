@@ -20,13 +20,14 @@ def main():
         euler_avg = numpy.mean(euler, axis=0)
         exact_avg = numpy.mean(exact, axis=0)
         huen_avg = numpy.mean(huen, axis=0)
-
-        euler_err = (euler_avg-exact_avg)#**2
-        huen_err = (huen_avg-exact_avg)#**2
+        print euler
+        print '....................................................'
+        euler_err = (euler_avg-exact_avg)**2
+        huen_err = (huen_avg-exact_avg)**2
         
         #plot each solution against each other
         x_data = numpy.linspace(0,1,1/t)
-        plotxyz(x_data, euler_err, huen_err, 'r', 'b', 'euler-huen', 1)
+        #plotxyz(x_data, euler_err, huen_err, 'r', 'b', 'euler-huen'+str(index), 1)
         '''
         #exact_plot = Scatter(x=x_data, y=exact_avg, name="Exact Soln")
         euler_plot = Scatter(x=x_data, y=euler_err, name="Euler Err")
