@@ -85,8 +85,8 @@ def run():
 		exact_mean = mean(exact, axis=0)
 		
 		#estimate the error-squared	
-		euler_err = abs(euler_mean-exact_mean)#**2
-		huen_err = abs(huen_mean-exact_mean)#**2
+		euler_err = abs(euler_mean-exact_mean)
+		huen_err = abs(huen_mean-exact_mean)
 		
 		#plot euler error over huen error for each value of delta t
 		plotxyz(linspace(0,1,1/dts[j]), euler_err, huen_err, 'b','r', 'euler-huen dt=2^-'+str(j+3), 0)
